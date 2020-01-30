@@ -1,0 +1,48 @@
+
+<mat-card *ngIf="pokemon$ |async as pokemon">
+
+    <button mat-icon-button routerLink="/pokedex">
+        <mat-icon>arrow_back</mat-icon>
+    </button >
+
+    <mat-grid-list cols="2" rowHeight="150px"> 
+
+        <mat-grid-tile>
+            <mat-list>
+                <img src="../../../assets/img/official-artwork/{{ pokemon.id }}.png" > 
+                <mat-card-content>
+                        <p>No.{{ pokemon.id | number:'3.' }}</p>
+                </mat-card-content>
+            </mat-list>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <mat-list>
+
+                <mat-list-item role="listitem">{{ pokemon.name }}
+
+                    <button mat-icon-button (click)="play()">
+                            <mat-icon>play_circle_outline</mat-icon>
+                    </button >
+                    <audio autoplay>               
+                            <source src="../../../assets/audio/{{ pokemon.id }}.mp3" type="audio/mp3" />
+                    </audio>
+                </mat-list-item>
+
+                <mat-list-item role="listitem">
+                        <mat-chip-list>
+                                <mat-chip *ngFor="let type of pokemon.types">{{ type }}</mat-chip>
+                        </mat-chip-list>
+                </mat-list-item>
+
+                <mat-list-item role="listitem">Taille: {{ pokemon.height | number:'1.1-1'}} m</mat-list-item>
+                <mat-list-item role="listitem">Poids: {{ pokemon.weight | number:'1.1-1'}} kg</mat-list-item>
+
+            </mat-list>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="2">{{ pokemon.description }}</mat-grid-tile>
+
+    </mat-grid-list>
+
+</mat-card>

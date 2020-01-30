@@ -1,0 +1,17 @@
+<mat-nav-list class="pokemons" [scrollWindow]="false"
+infiniteScroll 
+(scrolled)="onScroll()">
+    
+    <form class="example-form">
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="search" (keyup)="searchPokemon($event)">
+        </mat-form-field>
+    </form>
+    
+    <mat-list-item *ngFor="let pokemon of pagination.data" (click)="sendMessage(pokemon.id)">
+        <img mat-card-sm-image class='pokemon-image' src="../../../../assets/img/sprites/{{ pokemon.id }}.png">
+        {{ pokemon.id }}.{{ pokemon.name }}
+        <mat-icon>add_circle_outline</mat-icon>
+    </mat-list-item>
+
+</mat-nav-list>

@@ -1,6 +1,11 @@
     <mat-drawer-container>
         <mat-drawer-content>
-            <mat-grid-list cols="2"  rowHeight="600px">        
+            <mat-drawer-content class="header">
+                <button mat-icon-button routerLink="/team">
+                    <mat-icon>open_in_new</mat-icon>
+                </button >
+            </mat-drawer-content>
+            <mat-grid-list cols="2"  rowHeight="600px" class="mardrawnercontainer">        
                 <mat-grid-tile >
                     <mat-drawer mode="side" opened>
                         <app-pokemon-list (myMessages)="getMessageChild($event)"></app-pokemon-list>

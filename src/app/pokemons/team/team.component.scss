@@ -1,7 +1,19 @@
 .teamPokemon {
-    width: 60px;
+    width: 100px;
 }
 
 .buttonRemove {
     margin-bottom: 4px;
+}
+
+.pokemonList {
+    width : 500px;
+}
+
+#pokemonListText {
+    text-align: center;
+}
+
+.header {
+    position: absolute;
 }

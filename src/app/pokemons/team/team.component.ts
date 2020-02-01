@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { PokemonDetailed } from 'src/app/models/pokemonDetailed.model';
 import { tap, switchMap } from 'rxjs/operators';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-team',
@@ -15,7 +15,7 @@ export class TeamComponent implements OnInit {
 
   conn: ConnectionComponent;
 
-  constructor(private activatedRoute: ActivatedRoute, private pokemonService: PokemonService) { }
+  constructor(private activatedRoute: ActivatedRoute, private pokemonService: PokemonService, private router: Router) { }
 
   myPokemons: Array<number>;
   // pokemonArray$ = new Observable< Array< PokemonDetailed > >();

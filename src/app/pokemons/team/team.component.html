@@ -1,26 +1,32 @@
+
 <mat-drawer-container>
     <mat-drawer-content>
-        <mat-grid-list cols="2"  rowHeight="600px">        
+        <mat-drawer-content class="header">
+            <button mat-icon-button routerLink="/pokedex">
+                <mat-icon>home</mat-icon>
+            </button >
+        </mat-drawer-content>
+        <mat-grid-list cols="2"  rowHeight="600px">
             <mat-grid-tile >
                 <mat-drawer mode="side" opened>
                     <app-pokemon-list2 (myMessages)="getMessageChild($event)"></app-pokemon-list2>
                 </mat-drawer>
             </mat-grid-tile>
             <mat-grid-tile >
-                <mat-card *ngIf="pokemonArray">
-                    <mat-list-item>
+                <mat-card *ngIf="pokemonArray" class="pokemonList">
+                    <mat-list-item id="pokemonListText">
                         YOUR TEAM
                     </mat-list-item>
-                    <mat-list-item *ngFor="let pokemon of pokemonArray">
-                    
-                        <img class="teamPokemon" src="../../../assets/img/official-artwork/{{ pokemon.id }}.png" >
-                        
-                        <button class='buttonRemove' mat-icon-button (click)="removePokemon(pokemon.id)">
-                            <mat-icon>delete_outline</mat-icon>
-                        </button>
-                    
-                    </mat-list-item>
-                    </mat-card>
+                    <mat-grid-list cols="2" rowHeight="2:1">
+                        <mat-grid-tile *ngFor="let pokemon of pokemonArray">
+                            <img class="teamPokemon" src="../../../assets/img/official-artwork/{{ pokemon.id }}.png" >
+                            
+                            <button class='buttonRemove' mat-icon-button (click)="removePokemon(pokemon.id)">
+                                <mat-icon>delete_outline</mat-icon>
+                            </button>
+                        </mat-grid-tile>
+                    </mat-grid-list>
+                </mat-card>
             </mat-grid-tile>
         </mat-grid-list>
     </mat-drawer-content>
